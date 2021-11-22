@@ -12,8 +12,9 @@ static double finalValueFee = 0.00;
 static double finalFee = 0.00;
 static int attempt = 0;
 static double weight, distance, ounce, startup, weight1, ounce1, distance1, finalFee1;
-static String province, item, name, address;
+static String province, item, name, address, shippingServ;
 static int channelChoice = 0;
+
 
   static Scanner nameScan = new Scanner(System.in);
   static Scanner in = new Scanner(System.in);
@@ -79,8 +80,8 @@ static int channelChoice = 0;
                
                 finalValueFee = product/25;          
                 
-                weight = .5;
-
+                weight = 0;
+                 
                 System.out.println("Please enter the weight of the package. Max weight is 100 pounds: ");
                 System.out.println("If your item wieghs in ounces, please type '0'. \n");
                 weight = in.nextInt();
@@ -124,7 +125,35 @@ if(distance <= 0) {
                 }
 if(distance > 0 && distance1 == .5) {
 distance1 = distance;
-}
+} 
+                 finalFee1 = fees + finalValueFee;
+                   String finfee1 = df.format(finalFee1);
+                   
+                   finalFee = fees + finalValueFee;
+                   double finalMoney = money - finalFee;
+                   String decMoney = df.format(finalMoney); 
+                   
+                System.out.println("Please type in the service you would like to use: ");
+                System.out.println("Here are all the shipping services: \n\n");
+                   System.out.println("BLMS: Belux Mailing Service");
+                   System.out.println("BLFS: Belux First Class");
+                   System.out.println("BLLW: Belux Light Weight");
+                   System.out.println("BLRS: Belux Regular Shipping");
+                   System.out.println("BLPS: Belux Prioity Shipping");
+                   System.out.println("BLSS: Belux Special Service");
+                   System.out.println("BL2D: Belux 2-Day");
+                   System.out.println("BLA: Belux Air");
+                   System.out.println("BLON: Belux Overnight \n\n");
+                   System.out.println("If you use 'BLPS', 'BLSS', 'BL2D', 'BLA', 'BLON', you will get charged extra");
+                   shippingServ = in.next();
+                    
+                   if(shippingServ.equals("BLMS") || shippingServ.equals("BLFS") || shippingServ.equals("BLLW") || shippingServ.equals("BLRS") || shippingServ.equals("BLPS") || shippingServ.equals("BLSS") || shippingServ.equals("BL2D") || shippingServ.equals("BLA") || shippingServ.equals("BLON")){
+                       return;
+                   } 
+                                                                                                                 
+                     
+                   
+                   
 
                    if(attempt >= 5) {
                   System.out.println("We have detected strange activity. Please restart.");
@@ -168,53 +197,51 @@ distance1 = distance;
                    }else if(weight > 70){
                      fees = 17.95;
                    }                                 
-                   finalFee1 = fees + finalValueFee;
-                   String finfee1 = df.format(finalFee1);
+                  
                    
-                   if(weight > 1 && weight <= 100 && ounce > 1 && ounce <= 16 && distance >= 1) {
+                  
+                   if(weight >= 0 && weight <= 100 && ounce > 1 && ounce <= 16 && distance >= 1) {
                                    System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight+ "lbs, " + ounce + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }                                           
-                   if(weight1 > 1 && weight1 <= 100 && ounce > 1 && ounce <= 16 && distance >= 1) {
+                   if(weight1 >= 0 && weight1 <= 100 && ounce > 1 && ounce <= 16 && distance >= 1) {
                                   System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight1+ "lbs, " + ounce + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }                                                           
-                   if(weight > 1 && weight <= 100 && ounce1 > 1 && ounce1 <= 16 && distance >= 1) {
+                   if(weight >= 0 && weight <= 100 && ounce1 > 1 && ounce1 <= 16 && distance >= 1) {
                                    System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight+ "lbs, " + ounce1 + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }                                           
-                   if(weight > 1 && weight <= 100 && ounce > 1 && ounce <= 16 && distance1 >= 1) {
+                   if(weight >= 0 && weight <= 100 && ounce > 1 && ounce <= 16 && distance1 >= 1) {
                                    System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight+ "lbs, " + ounce + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance1+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }                        
-                   if(weight1 > 1 && weight1 <= 100 && ounce > 1 && ounce <= 16 && distance1 >= 1) {
+                   if(weight1 >= 0 && weight1 <= 100 && ounce > 1 && ounce <= 16 && distance1 >= 1) {
                                    System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight1+ "lbs, " + ounce + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance1+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }                                        
-                  if(weight1 > 1 && weight1 <= 100 && ounce1 > 1 && ounce1 <= 16 && distance1 >= 1) {      
+                  if(weight1 >= 0 && weight1 <= 100 && ounce1 > 1 && ounce1 <= 16 && distance1 >= 1) {      
                               System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight1+ "lbs, " + ounce1 + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance1+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }
-                   if(weight > 1 && weight <= 100 && ounce1 > 1 && ounce1 <= 16 && distance1 >= 1) {
+                   if(weight >= 0 && weight <= 100 && ounce1 > 1 && ounce1 <= 16 && distance1 >= 1) {
                                    System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight+ "lbs, " + ounce1 + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance1+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }
-                   if(weight1 > 1 && weight1 <= 100 && ounce1 > 1 && ounce1 <= 16 && distance >= 1) {
+                   if(weight1 >= 0 && weight1 <= 100 && ounce1 > 1 && ounce1 <= 16 && distance >= 1) {
                                    System.out.println("Shipping '" +item+ "' from shipper " +name+ ", "+province+ ", " +address+ ". Weight of the package is " +weight+ "lbs, " + ounce1 + " ounces." );
                                    System.out.println("The total distance to the destination is " +distance1+ " miles.");
                                    System.out.println("The total fees for your shipping is $" + finfee1 + "\n \n");
                           }
                                                                  
-                   finalFee = fees + finalValueFee;
-                   double finalMoney = money - finalFee;
-                   String decMoney = df.format(finalMoney);                 
+                                   
                    
                    System.out.println("Money left: $" + decMoney);                                    
                    System.out.println("Thanks for shipping with Belux! \n \n \n");
@@ -251,6 +278,8 @@ distance1 = distance;
                    } else if(channelChoice == 2) {
                    	ShippingService();
                    }
+                   
+                   System.out.println("**These will be added to the shipping soon**");
                 }   
                 
         public static void Reset() {    
@@ -270,6 +299,7 @@ distance1 = distance;
         name = "";
         address = "";   
         
+                
                 System.out.println("All data has been reset. \n\n");
                
                 SwitchChannel();
@@ -277,7 +307,7 @@ distance1 = distance;
                 public static void SwitchChannel() {
                 	
                 System.out.println("**Please input account details** Otherwise shipping statements will contain null data.");
-                System.out.println("^Scroll up to see previous updates^");
+                System.out.println("^*SCROLL UP* to see previous updates^");
                 System.out.println(" _____________________________");
                 System.out.println("|Welcome to Belux Shipping Co.|");
                 System.out.println("|Where would you like to go?  |");
@@ -286,7 +316,7 @@ distance1 = distance;
                 System.out.println("| (2) Shipping                |");
                 System.out.println("| (3) ShippingService         |");
                 System.out.println("| (4) Reset                   |");
-	        System.out.println("| (5) Info                    |");
+	            System.out.println("| (5) Info                    |");
                 System.out.println("|_____________________________|");                
                 startup = in.nextInt();
                 
@@ -337,4 +367,3 @@ if(startup == 1) {
 }	
 }
 }
-
