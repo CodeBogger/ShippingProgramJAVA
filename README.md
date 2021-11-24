@@ -1,1 +1,1 @@
-# Everything here is made in java, just full java
+# Shipping program for imaginary purposes, maybe real-world use. Nope its built for terminal use:/
