@@ -23,8 +23,17 @@ public class ShippingConfig {
 
     public static void Info() {
         System.out.println("Here is the info: \n\n");
+        System.out.println("Created by: Boggers");
+        System.out.println("Date of creation: I don't know");
+        System.out.println("Program description: An imaginary program to recreate and reformat shipping websites or companys.");
 
-        SwitchChannel();
+        System.out.println("You are about to switch channels. Insert '1' to switch or insert '2' to review 'info' again.");
+        channelChoice = in.nextInt();
+        if (channelChoice == 1) {
+            SwitchChannel();
+        } else if (channelChoice == 2) {
+            Info();
+        }
     }
 
     public static void Account() {
@@ -115,6 +124,13 @@ public class ShippingConfig {
 
             System.out.println("Please type in the distance your package will cover in miles: \n");
             distance = in.nextInt();
+            
+            finalFee1 = fees + finalValueFee;
+            String finfee1 = df.format(finalFee1);
+
+            finalFee = fees + finalValueFee;
+            double finalMoney = money - finalFee;
+            String decMoney = df.format(finalMoney);
 
 
             if (distance <= 0) {
@@ -132,11 +148,10 @@ public class ShippingConfig {
     }
      public static void Shipping1() {
 
-         finalFee1 = fees + finalValueFee;
-         String finfee1 = df.format(finalFee1);
+         double finalFeeF = finalFee1;
+         String finfee1 = df.format(finalFeeF);
 
-         finalFee = fees + finalValueFee;
-         double finalMoney = money - finalFee;
+         double finalMoney = money - finalFeeF;
          String decMoney = df.format(finalMoney);
 
          System.out.println("Please type in the service you would like to use: ");
@@ -205,20 +220,20 @@ public class ShippingConfig {
          
 
          if (shipping.equals("BLPS")) {
-             fees = 9;
-             fees = 9;
+             fees = 9.15;
+             fees = 9.15;
          } else if (shipping.equals("BLSS")) {
-             fees = 13;
-             fees = 13;
+             fees = 13.25;
+             fees = 13.25;
          } else if (shipping.equals("BL2D")) {
-             fees = 14;
-             fees = 14;
+             fees = 14.85;
+             fees = 14.85;
          } else if (shipping.equals("BLA")) {
-             fees = 29;
-             fees = 29;
+             fees = 29.25;
+             fees = 29.25;
          } else if (shipping.equals("BLON")) {
-             fees = 39;
-             fees = 39;
+             fees = 39.30;
+             fees = 39.30;
          } else if (shipping.equals("BLF")) {
         	 fees = 28.25;
         	 fees = 28.25;
@@ -393,6 +408,9 @@ public class ShippingConfig {
         item = "";
         name = "";
         address = "";
+        shipping = "";
+        
+        
 
 
         System.out.println("All data has been reset. \n\n");
